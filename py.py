@@ -27,10 +27,13 @@ def nombre():
 def affichage_user():
     with open(data_base, mode='r', encoding='utf-8') as fichier:
         reader = csv.reader(fichier)
+        lignes = list(reader)
+        
+        lignes_triees = sorted(lignes, key=lambda ligne: int(ligne[1]))
 
-        # Lire et afficher chaque ligne du fichier
-        for ligne in reader:
+        for ligne in lignes_triees:
             print(ligne)  # Affiche la ligne sous forme de liste
+
 
 menu_bol = True
 while menu_bol:
